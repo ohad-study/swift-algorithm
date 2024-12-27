@@ -1,0 +1,21 @@
+/// https://www.acmicpc.net/problem/1316
+
+var cnt = Int(readLine()!)!
+var temp: [Character] = []
+
+for _ in 0..<cnt {
+    temp.removeAll()
+    let input = readLine()!
+    
+    for i in input {
+        if !temp.contains(i) {
+            temp.append(i)
+        } else if temp.last != i {
+            cnt -= 1
+            break
+        }
+    }
+}
+
+print(cnt)
+
