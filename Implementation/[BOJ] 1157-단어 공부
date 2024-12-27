@@ -1,0 +1,17 @@
+/// https://www.acmicpc.net/problem/1157
+
+import Foundation
+
+var temp: [Character:Int] = [:] // 각 문자와 빈도를 저장할 딕셔너리 생성
+let input = readLine()!.uppercased()
+
+for char in input {
+    temp[char, default: 0] += 1 // 빈도수 추가
+}
+
+let maxValue = temp.values.max() ?? 0 // 최댓값 구하기
+let maxKey = temp.filter { $0.value == maxValue }.keys // 최댓값에 맞는 키 구하기
+
+if maxKey.count == 1 {
+    print(maxKey.first!)
+} else { print("?") }
