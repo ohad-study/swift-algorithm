@@ -1,0 +1,25 @@
+/// https://www.acmicpc.net/problem/1157
+
+import Foundation
+
+var temp: [Character:Int] = [:] // 각 문자와 빈도를 저장할 딕셔너리 생성
+let input = readLine()!.uppercased()
+var num = 0
+var answer: Character? = nil
+
+for char in input {
+    temp[char, default: 0] += 1 // 빈도수 추가
+    
+    if num < temp[char]! {
+        num = temp[char]!
+        answer = char
+    } else if num == temp[char]! {
+        answer = nil
+    }
+}
+
+if answer == nil {
+    print("?")
+} else {
+    print(answer!)
+}
