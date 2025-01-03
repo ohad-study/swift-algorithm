@@ -1,0 +1,25 @@
+/// https://www.acmicpc.net/problem/28278
+
+import Foundation
+
+let cnt = Int(readLine()!)!
+var stack: [Int] = []
+
+for _ in 0..<cnt {
+    let command = readLine()!.split(separator: " ").map { Int($0) }
+    
+    switch command[0]{
+    case 1:
+        stack.append(command[1]!)
+    case 2:
+        print(stack.isEmpty ? -1 : stack.removeLast())
+    case 3:
+        print(stack.count)
+    case 4:
+        print(stack.isEmpty ? 1 : 0)
+    case 5:
+        print(stack.isEmpty ? -1 : stack.last!)
+    default:
+        break
+    }
+}
